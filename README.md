@@ -44,12 +44,13 @@ Application during startup is looking for configuration within execution dir. Fi
 
 #### Configuration file scheme
 
-* adapterName: BT OBD Adapter name, e.g: "AABBCC112233" 
-* logFile.fileName: csv file name in which data will be saved
-* duration: duration of the process, in milliseconds
-* stnEnabled: enable if you have stn based adapter e.g: stn2120
-* mode: CAN_SERVER | LOG_FILE - indicates whether data should be dumped into file or application should behave as network server.
-* canServer.port - port on which application listen to in server mode
+* `adapterName`: BT OBD Adapter name, e.g: "AABBCC112233" 
+* `logFile.fileName`: csv file name in which data will be saved
+* `duration`: duration of the process, in milliseconds
+* `stnEnabled`: enable if you have stn based adapter e.g: stn2120
+* `mode`: CAN_SERVER | LOG_FILE - indicates whether data should be dumped into file or application should behave as network server.
+* `canServer.port` - port on which application listen to in server mode
+* `debug`: false | true - enables debug logging
 
 #### Example configuration
 
@@ -58,7 +59,7 @@ adapterName: "AABBCC112233"
 duration: 30000
 stnEnabled: false
 mode: CAN_SERVER 
-
+debug: true 
 logFile:
    fileName: "./vw_out.%d.csv"
 

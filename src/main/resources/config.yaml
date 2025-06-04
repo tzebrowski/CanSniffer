@@ -2,7 +2,7 @@ adapterName: "AABBCC112233"
 duration: 30000
 stnEnabled: false
 mode: CAN_SERVER
-
+debug: true 
 logFile:
    fileName: "./vw_out.%d.csv"
 

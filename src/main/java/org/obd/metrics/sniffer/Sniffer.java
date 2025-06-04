@@ -44,7 +44,7 @@ final class Sniffer  {
 		final SniffingPolicy sniffingPolicy = SniffingPolicy
 				.builder()
 				.enabled(true)
-				.debugEnabled(false)
+				.debugEnabled(settings.isDebug())
 				.stNxx(STNxxExtensions.builder().enabled(settings.isStnEnabled()).build()).build();
 
 		workflow.start(connection, sniffingPolicy);

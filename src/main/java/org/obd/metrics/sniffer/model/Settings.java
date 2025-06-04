@@ -12,7 +12,7 @@ public final class Settings {
 	private Server canServer = new Server();
 	private LogFile logFile = new LogFile();
 	private String adapterName;
-	
+	private boolean debug;
 	private long duration;
 	private boolean stnEnabled;
 }
