@@ -1,9 +1,11 @@
-name: Build 
+name: Build
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ "main", "master", "feat/*", "fix/*" ]
+    tags: [ "v*" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "master", "feat/*", "fix/*" ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
