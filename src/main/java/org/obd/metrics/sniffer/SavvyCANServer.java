@@ -18,7 +18,7 @@ final class SavvyCANServer extends ReplyObserver<SnifferMetric>{
 	SavvyCANServer(Settings settings) throws IOException {
 		
 		try (final ServerSocket serverSocket = new ServerSocket(settings.getCanServer().getPort())) {
-			log.info("Server started. Waiting for a client on port ", settings.getCanServer().getPort());
+			log.info("Server started. Waiting for a client on port: {}", settings.getCanServer().getPort());
 
 			Socket clientSocket = serverSocket.accept();
 			log.info("Client connected: {}", clientSocket.getInetAddress());
@@ -33,7 +33,7 @@ final class SavvyCANServer extends ReplyObserver<SnifferMetric>{
 			final String segments[] = line.split(" ");
 			if (segments.length == 9) {
 				try {
-					final String canServerLine = "(" +timestamp + ") 0 " +  
+					final String canServerLine = "(" + timestamp + ") 0 " +  
 								segments[0] + "#" + 
 								segments[1] + 
 								segments[2] + 

@@ -19,8 +19,8 @@ package org.obd.metrics.sniffer;
 import java.io.IOException;
 
 import org.obd.metrics.api.Workflow;
+import org.obd.metrics.api.model.Reply;
 import org.obd.metrics.api.model.ReplyObserver;
-import org.obd.metrics.api.model.SnifferMetric;
 import org.obd.metrics.api.model.SniffingPolicy;
 import org.obd.metrics.api.model.SniffingPolicy.STNxxExtensions;
 import org.obd.metrics.sniffer.model.Mode;
@@ -38,10 +38,8 @@ final class Sniffer  {
 		log.debug("Starting sniffer for following settings: {}", settings);
 		
 		final AdapterConnection connection = BluetoothConnection.openConnection(settings.getAdapterName());
-		ReplyObserver<SnifferMetric> observer = getObserver(settings);
-		
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		final Workflow workflow = Workflow.instance().observer((ReplyObserver) observer).initialize();
+
+		final Workflow workflow = Workflow.instance().observer(getObserver(settings)).initialize();
 
 		final SniffingPolicy sniffingPolicy = SniffingPolicy
 				.builder()
@@ -54,14 +52,15 @@ final class Sniffer  {
 		
 	}
 
-	private ReplyObserver<SnifferMetric> getObserver(Settings settings) throws IOException {
-		ReplyObserver<SnifferMetric> observer = null;
+	@SuppressWarnings("unchecked")
+	private ReplyObserver<Reply<?>> getObserver(Settings settings) throws IOException {
+		ReplyObserver<?> observer = null;
 		
 		if (settings.getMode() ==  Mode.LOG_FILE) {
 			observer = new SavvyCanCsvLogOutput(settings);
 		} else {
 			observer = new SavvyCANServer(settings);
 		}
-		return observer;
+		return (ReplyObserver<Reply<?>>) observer;
 	}
 }
