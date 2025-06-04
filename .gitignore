@@ -1,0 +1,7 @@
+/target/
+/.classpath
+/.project
+/logs/
+/config.yaml
+/config_default.yaml
+/config_multi.yaml
