@@ -6,13 +6,16 @@
 
 `Can Sniffer` is a lightweight application built on top of [ObdMetrics](https://github.com/tzebrowski/ObdMetrics "ObdMetrics") that captures CAN bus traffic using Elm327 BT compatible adapters and either saves it to a csv file or stream data through network using `canlogserver` schema. This data can later be read and visualized using `SavvyCAN` either by loading the csv or having live update from device.
 
-Youtube overview video:
-
-[![Playlist YouTube](https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg)]([https://youtube.com/shorts/jQKC5ukxBIw?feature=share](https://youtube.com/shorts/jQKC5ukxBIw?feature=share))
 
 ### Solution Architecture
 
  ![Alt text](./can_sniffer_architecture.jpg?raw=true "Solution Architecture")
+
+
+
+### YouTube overview video
+
+[![Can Sniffer on YouTube](https://img.youtube.com/vi/jQKC5ukxBIw/0.jpg)](https://youtube.com/shorts/jQKC5ukxBIw?feature=share "Overview")
 
 
 ### Csv file schema
