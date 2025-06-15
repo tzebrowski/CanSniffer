@@ -26,6 +26,7 @@ Application outputs csv file with following schema
 ### Features
 
 * Capturing can bus traffic and dumping into file. 
+* Streaming can bus data over the network.
 
 ### Building and running
 
@@ -58,7 +59,7 @@ Application during startup is looking for configuration within execution dir. Fi
 * `canServer.port` - port on which application listen to in server mode
 * `debug`: false | true - enables debug logging
 
-#### Example configuration
+##### CAN_SERVER example configuration
 
 ```
 adapterName: "AABBCC112233"
@@ -66,11 +67,23 @@ duration: 30000
 stnEnabled: false
 mode: CAN_SERVER 
 debug: true 
-logFile:
-   fileName: "./vw_out.%d.csv"
 
 canServer:
-   port: 28700   
+   port: 28700 
+      
+```
 
+
+##### LOG_FILE example configuration
+
+```
+adapterName: "AABBCC112233"
+duration: 30000
+stnEnabled: false
+mode: LOG_FILE
+debug: true 
+logFile:
+   fileName: "./giulia.%d.csv"
+    
       
 ```
